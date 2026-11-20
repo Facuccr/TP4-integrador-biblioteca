@@ -1,18 +1,68 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
+import { Stack } from 'expo-router';
+import { COLORES } from '../constants/tema';
+import { BibliotecaProvider, useBiblioteca } from '../context/BibliotecaContext';
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
+function NavegacionRaiz() {
+  const { sesion } = useBiblioteca();
+  const haySesion = sesion !== null;
 
-SplashScreen.preventAutoHideAsync();
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <Stack
+      screenOptions={{
+        headerStyle: { backgroundColor: COLORES.primario },
+        headerTintColor: COLORES.textoClaro,
+        headerTitleStyle: { fontWeight: '700' },
+        contentStyle: { backgroundColor: COLORES.fondo },
+      }}
+    >
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen
+        name="buscar"
+        options={{ title: 'Buscar en el catálogo' }}
+      />
+      <Stack.Screen
+        name="escanear"
+        options={{ title: 'Escanear código ISBN' }}
+      />
+      <Stack.Screen
+        name="reservar/[isbn]"
+        options={{
+          presentation: 'modal',
+          title: 'Confirmar reserva',
+        }}
+      />
+      <Stack.Screen
+        name="permisos/[recurso]"
+        options={{
+          presentation: 'modal',
+          title: 'Permiso requerido',
+        }}
+      />
+      <Stack.Protected guard={!haySesion}>
+        <Stack.Screen
+          name="login"
+          options={{
+            presentation: 'modal',
+            title: 'Acceso del personal',
+          }}
+        />
+      </Stack.Protected>
+      <Stack.Protected guard={haySesion}>
+        <Stack.Screen
+          name="mostrador"
+          options={{
+            title: 'Mostrador de entregas',
+          }}
+        />
+      </Stack.Protected>
+    </Stack>
+  );
+}
+
+export default function RootLayout() {
+  return (
+    <BibliotecaProvider>
+      <NavegacionRaiz />
+    </BibliotecaProvider>
   );
 }

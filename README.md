@@ -166,11 +166,18 @@ npx uri-scheme open "exp://<IP:PUERTO>/--/escanear" --android
 ## Evidencias
 
 Las capturas de pantalla de cada flujo obligatorio se encuentran en la carpeta `evidencias/`:
-1. Catálogo cargando, con error y con datos.
-2. Buscador con filtro activo.
-3. Detalle de libro inexistente / ISBN inválido.
-4. Confirmación de reserva con ejemplares disponibles y sin ejemplares (lista de espera).
-5. Escáner en sus cuatro estados (`cargando`, `concedido`, `preguntable` y `bloqueado`).
-6. Notificación local recibida tras 15 segundos.
-7. Mostrador antes y después de ejecutar **Entregar al siguiente**.
-8. Pantalla 404 (`+not-found.tsx`).
+
+1. **Catálogo inicial / cargando:** `evidencias/01-catalogo.jpeg`
+2. **Catálogo con error y botón Reintentar:** `evidencias/02-catalogo-error.jpeg`
+3. **Catálogo con datos y vistos recientemente:** `evidencias/03-catalogo-datos.jpeg`
+4. **Buscador con filtro activo:** `evidencias/04-buscador.jpeg`
+5. **Detalle de libro inexistente / ISBN inválido:** `evidencias/05-detalle-inexistente.jpeg`
+6. **Pestaña Mis reservas:** `evidencias/06-reservas.jpeg`
+7. **Confirmación de reserva sin ejemplares (lista de espera):** `evidencias/07-reservas-sin-ejemplares.jpeg`
+8. **Confirmación de reserva con ejemplares disponibles:** `evidencias/08-reserva-con-ejemplares.jpeg`
+9. **Escáner con permiso de cámara concedido:** `evidencias/09-escanear-concedido.jpeg`
+10. **Notificación local recibida tras 15 segundos:** `evidencias/10-notificacion.jpeg`
+11. **Escáner con cámara bloqueada e ingreso manual:** `evidencias/11-escanear-bloqueado.jpeg`
+12. **Mostrador antes de entregar al siguiente:** `evidencias/12-mostrador-antes.jpeg`
+13. **Mostrador después de entregar al siguiente:** `evidencias/13-mostrador-despues.jpeg`
+14. **Pantalla 404 (`+not-found.tsx`):** `evidencias/14-pantalla-404.jpeg`

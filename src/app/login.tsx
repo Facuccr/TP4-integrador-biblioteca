@@ -55,7 +55,7 @@ export default function LoginScreen() {
           />
           <Text style={styles.titulo}>Acceso del personal</Text>
           <Text style={styles.subtitulo}>
-            Credenciales de demostración: usuario "personal" y clave "ipf2026".
+            Credenciales de demostración: usuario &apos;personal&apos; y clave &apos;ipf2026&apos;.
           </Text>
         </View>
 

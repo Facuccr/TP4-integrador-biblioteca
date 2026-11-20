@@ -1,4 +1,8 @@
 import * as Notifications from 'expo-notifications';
+import {
+    AndroidImportance,
+    SchedulableTriggerInputTypes,
+} from 'expo-notifications';
 import { Platform } from 'react-native';
 import { COLORES } from '../constants/tema';
 
@@ -17,7 +21,7 @@ export async function configurarCanalPrestamos(): Promise<void> {
     if (Platform.OS === 'android') {
         await Notifications.setNotificationChannelAsync(CANAL_PRESTAMOS, {
             name: 'Recordatorios de préstamos',
-            importance: Notifications.AndroidImportance.HIGH,
+            importance: AndroidImportance.HIGH,
             vibrationPattern: [0, 250, 250, 250],
             lightColor: COLORES.primario,
         });
@@ -50,7 +54,7 @@ export async function programarRecordatorioDevolucion(
             data: { ruta: '/reservas' },
         },
         trigger: {
-            type: Notifications.SchedulableTriggerInputTypes.TIME_INTERVAL,
+            type: SchedulableTriggerInputTypes.TIME_INTERVAL,
             seconds: 15,
             repeats: false,
             channelId: Platform.OS === 'android' ? CANAL_PRESTAMOS : undefined,

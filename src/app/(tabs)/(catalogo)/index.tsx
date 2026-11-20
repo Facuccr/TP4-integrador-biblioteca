@@ -8,19 +8,19 @@ import {
     Text,
     View,
 } from 'react-native';
-import { EstadoCarga } from '../../../../components/EstadoCarga';
-import { EstadoError } from '../../../../components/EstadoError';
-import { EstadoVacio } from '../../../../components/EstadoVacio';
-import { LibroCard } from '../../../../components/LibroCard';
+import { EstadoCarga } from '../../../components/EstadoCarga';
+import { EstadoError } from '../../../components/EstadoError';
+import { EstadoVacio } from '../../../components/EstadoVacio';
+import { LibroCard } from '../../../components/LibroCard';
 import {
     COLORES,
     ESPACIADO,
     FUENTES,
     RADIOS,
     TACTIL_MINIMO,
-} from '../../../../constants/tema';
-import { useBiblioteca } from '../../../../context/BibliotecaContext';
-import { useLibros } from '../../../../hooks/useLibros';
+} from '../../../constants/tema';
+import { useBiblioteca } from '../../../context/BibliotecaContext';
+import { useLibros } from '../../../hooks/useLibros';
 
 export default function CatalogoScreen() {
   const { libros, cargando, error, reintentar } = useLibros();
